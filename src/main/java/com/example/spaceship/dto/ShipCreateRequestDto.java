@@ -1,8 +1,10 @@
 package com.example.spaceship.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class ShipCreateRequestDto {
     private Long id;
 
@@ -20,7 +22,4 @@ public class ShipCreateRequestDto {
 
     private double mileage;
 
-    private boolean used;
-
-    private double rating;
 }

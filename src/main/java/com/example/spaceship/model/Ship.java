@@ -1,6 +1,7 @@
 package com.example.spaceship.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Ship {
 
     @Id
@@ -36,10 +38,4 @@ public class Ship {
 
     @Column(name = "mileage")
     private double mileage;
-
-    @Column(name = "used")
-    private boolean used;
-
-    @Column(name = "rating")
-    private double rating;
 }

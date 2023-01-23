@@ -29,14 +29,12 @@ public class ShipController {
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody ShipCreateRequestDto shipCreateRequestDto) {
-        log.info("Start add");
+    public ShipDto add(@RequestBody ShipCreateRequestDto shipCreateRequestDto) {
         return service.add(shipCreateRequestDto);
     }
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        log.info("deleting ship by ID " + id);
         return service.deleteById(id);
     }
 
@@ -44,10 +42,5 @@ public class ShipController {
     public List<ShipDto> get() {
         log.info("showing all the ships");
         return service.getAllShips();
-    }
-    @GetMapping("/filter/{request}")
-    public List<ShipDto> filter(@PathVariable String request) {
-        log.info("Start filter");
-        return service.filter(request);
     }
 }
