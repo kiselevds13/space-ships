@@ -1,10 +1,13 @@
 package com.example.spaceship.controller;
 
 import com.example.spaceship.dto.ShipCreateRequestDto;
+import com.example.spaceship.dto.ShipCreateUpdateRequestDto;
 import com.example.spaceship.dto.ShipDto;
 import com.example.spaceship.service.ShipService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +27,6 @@ public class ShipController {
 
     @GetMapping("/find/{id}")
     public ShipDto findByID(@PathVariable Long id) {
-        log.info("looking for the ship by ID " + id);
         return service.findById(id);
     }
 
@@ -33,14 +35,18 @@ public class ShipController {
         return service.add(shipCreateRequestDto);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         return service.deleteById(id);
     }
 
     @GetMapping("/get_all_ships")
     public List<ShipDto> get() {
-        log.info("showing all the ships");
         return service.getAllShips();
+    }
+
+    @PostMapping("/update")
+    public ShipDto update(@RequestBody ShipCreateUpdateRequestDto requestDto) {
+        return service.update(requestDto);
     }
 }
