@@ -1,5 +1,8 @@
 package com.example.spaceship.dto;
 
+import com.example.spaceship.constant.Planet;
+import com.example.spaceship.constant.ShipType;
+import com.example.spaceship.model.Hangar;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,9 +13,9 @@ public class ShipCreateRequestDto {
 
     private String name;
 
-    private String planet;
+    private Planet planet;
 
-    private String shipType;
+    private ShipType shipType;
 
     private int capacity;
 
@@ -22,4 +25,5 @@ public class ShipCreateRequestDto {
 
     private double mileage;
 
+    private Hangar hangar;
 }

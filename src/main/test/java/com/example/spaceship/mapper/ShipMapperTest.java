@@ -1,6 +1,9 @@
 package com.example.spaceship.mapper;
 
+import com.example.spaceship.constant.Planet;
+import com.example.spaceship.constant.ShipType;
 import com.example.spaceship.dto.ShipCreateRequestDto;
+import com.example.spaceship.model.Hangar;
 import com.example.spaceship.model.Ship;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -18,8 +21,8 @@ class ShipMapperTest {
         ShipCreateRequestDto requestDto = ShipCreateRequestDto.builder()
                 .id(1L)
                 .name("some name")
-                .shipType("some type")
-                .planet("some planet")
+                .shipType(ShipType.EXPLORERSHIP)
+                .planet(Planet.EARTH)
                 .capacity(1)
                 .powerOfEngine(1)
                 .maxSpeed(1)

@@ -90,6 +90,7 @@ public class ShipService {
         ship.setPowerOfEngine(requestDto.getPowerOfEngine());
         ship.setMaxSpeed(requestDto.getMaxSpeed());
         ship.setMileage(requestDto.getMileage());
+        ship.setHangar(requestDto.getHangar());
 
         shipRepository.save(ship);
         return shipDtoMapper.map(ship);

@@ -1,17 +1,21 @@
 package com.example.spaceship.model;
 
+import com.example.spaceship.constant.Planet;
+import com.example.spaceship.constant.ShipType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "ship")
 public class Ship {
 
     @Id
@@ -21,11 +25,13 @@ public class Ship {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "planet")
-    private String planet;
+    private Planet planet;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "ship_type")
-    private String shipType;
+    private ShipType shipType;
 
     @Column(name = "capacity")
     private int capacity;
@@ -38,4 +44,8 @@ public class Ship {
 
     @Column(name = "mileage")
     private double mileage;
+
+    @ManyToOne
+    @JoinColumn(name = "hangar_id", referencedColumnName = "id")
+    private Hangar hangar;
 }

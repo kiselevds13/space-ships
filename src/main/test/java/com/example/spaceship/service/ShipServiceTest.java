@@ -1,5 +1,7 @@
 package com.example.spaceship.service;
 
+import com.example.spaceship.constant.Planet;
+import com.example.spaceship.constant.ShipType;
 import com.example.spaceship.dto.ShipCreateRequestDto;
 import com.example.spaceship.dto.ShipCreateUpdateRequestDto;
 import com.example.spaceship.dto.ShipDto;
@@ -33,8 +35,8 @@ public class ShipServiceTest {
 
     public static final long ID = 1L;
     public static final String NAME = "some name";
-    public static final String PLANET = "some planet";
-    public static final String SHIP_TYPE = "some ship type";
+    public static final Planet PLANET = Planet.EARTH;
+    public static final ShipType SHIP_TYPE = ShipType.EXPLORERSHIP;
     public static final int CAPACITY = 1;
     public static final double POWER_OF_ENGINE = 1.1;
     public static final double MAX_SPEED = 10.1;
